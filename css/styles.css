@@ -8,30 +8,34 @@ body {
     font-family: 'Arial', sans-serif;
     background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
     min-height: 100vh;
+    max-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     color: #fff;
+    overflow: hidden;
+    touch-action: none;
 }
 
 .game-container {
     background: rgba(0, 0, 0, 0.3);
     backdrop-filter: blur(10px);
     border-radius: 20px;
-    padding: 30px;
+    padding: 15px;
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
-    max-width: 900px;
-    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-height: calc(100vh - 40px);
 }
 
 header {
     text-align: center;
-    margin-bottom: 20px;
 }
 
 h1 {
-    font-size: 3em;
-    margin-bottom: 20px;
+    font-size: 2em;
+    margin-bottom: 10px;
     text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
     background: linear-gradient(45deg, #fff, #ccc);
     -webkit-background-clip: text;
@@ -43,6 +47,7 @@ h1 {
     display: flex;
     gap: 15px;
     justify-content: center;
+    margin-bottom: 15px;
 }
 
 .btn {
@@ -68,8 +73,42 @@ h1 {
     cursor: not-allowed;
 }
 
+.speed-controls {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+.speed-controls label {
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.speed-btn {
+    padding: 6px 14px;
+    font-size: 13px;
+    font-weight: bold;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: transparent;
+    color: white;
+}
+
+.speed-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
+.speed-btn.active {
+    background: linear-gradient(45deg, #667eea 0%, #764ba2 100%);
+    border-color: transparent;
+}
+
 .game-info {
-    margin-bottom: 20px;
+    width: 100%;
 }
 
 .score-panel {
@@ -77,7 +116,9 @@ h1 {
     justify-content: space-around;
     background: rgba(255, 255, 255, 0.1);
     border-radius: 15px;
-    padding: 15px;
+    padding: 12px;
+    max-width: 400px;
+    margin: 0 auto;
 }
 
 .light-score, .dark-score {
@@ -86,24 +127,29 @@ h1 {
 
 .light-score .label {
     color: #ffd700;
-    font-size: 1.2em;
+    font-size: 1.1em;
 }
 
 .dark-score .label {
     color: #9370db;
-    font-size: 1.2em;
+    font-size: 1.1em;
 }
 
 .score {
     display: block;
-    font-size: 2.5em;
+    font-size: 1.8em;
     font-weight: bold;
-    margin-top: 5px;
+    margin-top: 3px;
+}
+
+.canvas-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #gameCanvas {
     display: block;
-    margin: 0 auto;
     border: 3px solid rgba(255, 255, 255, 0.3);
     border-radius: 10px;
     background: #000;
@@ -122,20 +168,65 @@ h1 {
 }
 
 @media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+    
     .game-container {
-        padding: 20px;
+        padding: 15px;
+        border-radius: 15px;
+        width: calc(100vw - 20px);
+        max-width: 100%;
+        gap: 10px;
     }
     
     h1 {
-        font-size: 2em;
+        font-size: 1.8em;
+        margin-bottom: 10px;
     }
     
     .controls {
-        flex-direction: column;
-        align-items: center;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-bottom: 10px;
     }
     
     .btn {
-        width: 200px;
+        padding: 10px 20px;
+        font-size: 14px;
+        flex: 1;
+        min-width: 100px;
+    }
+    
+    .speed-controls {
+        flex-wrap: wrap;
+        gap: 5px;
+    }
+    
+    .speed-controls label {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 5px;
+    }
+    
+    .speed-btn {
+        padding: 6px 12px;
+        font-size: 12px;
+    }
+    
+    .score-panel {
+        padding: 10px;
+    }
+    
+    .score {
+        font-size: 1.5em;
+    }
+    
+    .game-status {
+        margin-top: 10px;
+    }
+    
+    #statusMessage {
+        font-size: 1em;
     }
 } 

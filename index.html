@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>Double Arkanoid - Light vs Dark</title>
     <link rel="stylesheet" href="css/styles.css">
 </head>
@@ -10,10 +10,12 @@
     <div class="game-container">
         <header>
             <h1>Double Arkanoid</h1>
-            <div class="controls">
-                <button id="startBtn" class="btn">Start Game</button>
-                <button id="pauseBtn" class="btn" disabled>Pause</button>
-                <button id="resetBtn" class="btn">Reset</button>
+            <div class="speed-controls">
+                <label>Speed:</label>
+                <button class="speed-btn active" data-speed="1">1x</button>
+                <button class="speed-btn" data-speed="2">2x</button>
+                <button class="speed-btn" data-speed="4">4x</button>
+                <button class="speed-btn" data-speed="8">8x</button>
             </div>
         </header>
         
@@ -30,10 +32,8 @@
             </div>
         </div>
         
-        <canvas id="gameCanvas"></canvas>
-        
-        <div class="game-status">
-            <p id="statusMessage">Press Start to begin</p>
+        <div class="canvas-container">
+            <canvas id="gameCanvas"></canvas>
         </div>
     </div>
     
