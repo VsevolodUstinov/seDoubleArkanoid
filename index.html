@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Double Arkanoid - Light vs Dark</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="game-container">
+        <header>
+            <h1>Double Arkanoid</h1>
+            <div class="controls">
+                <button id="startBtn" class="btn">Start Game</button>
+                <button id="pauseBtn" class="btn" disabled>Pause</button>
+                <button id="resetBtn" class="btn">Reset</button>
+            </div>
+        </header>
+        
+        <div class="game-info">
+            <div class="score-panel">
+                <div class="light-score">
+                    <span class="label">Light</span>
+                    <span id="lightScore" class="score">0</span>
+                </div>
+                <div class="dark-score">
+                    <span class="label">Dark</span>
+                    <span id="darkScore" class="score">0</span>
+                </div>
+            </div>
+        </div>
+        
+        <canvas id="gameCanvas"></canvas>
+        
+        <div class="game-status">
+            <p id="statusMessage">Press Start to begin</p>
+        </div>
+    </div>
+    
+    <script src="js/game.js"></script>
+</body>
+</html> 

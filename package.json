@@ -1,0 +1,19 @@
+{
+  "name": "double-arkanoid",
+  "version": "1.0.0",
+  "description": "A two-sided Arkanoid game with light and dark balls converting opposite color bricks",
+  "main": "index.html",
+  "scripts": {
+    "start": "python3 -m http.server 8000",
+    "test": "open tests/test.html"
+  },
+  "keywords": [
+    "game",
+    "arkanoid",
+    "javascript",
+    "html5",
+    "canvas"
+  ],
+  "author": "",
+  "license": "MIT"
+} 
